@@ -1,0 +1,61 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap');
+    fieldset {
+                text-align: center;
+                 border: 6px groove black;
+                 border-radius: 80px 80px;
+                 font-family: 'Hi Melody', cursive;
+                }
+    legend {
+                 text-align: center;
+                 font-size: 50px;
+                 padding-left: 20px;
+                 padding-right: 20px;
+             }
+
+    legend h1 {
+        text-align: center;
+        font-size: 40px;
+    }
+    label{
+            font-size: 20px;
+            }
+</style>
+
+
+<form action="{% url 'aaa:vote' %}" method="post">
+{% csrf_token %}
+<fieldset>
+    <legend><h1>{{ question1.question_text }}</h1></legend>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    {% for choice in question1.choice_set.all %}
+        <input type="radio" name="question1_choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+    {% endfor %}
+</fieldset>
+<fieldset>
+     <legend><h1>{{ question2.question_text }}</h1></legend>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    {% for choice in question2.choice_set.all %}
+        <input type="radio" name="question2_choice" id="choice{{ forloop.counter }}+2" value="{{ choice.id }}">
+        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+    {% endfor %}
+</fieldset>
+<fieldset>
+     <legend><h1>{{ question3.question_text }}</h1></legend>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    {% for choice in question3.choice_set.all %}
+        <input type="radio" name="question3_choice" id="choice{{ forloop.counter }}+6" value="{{ choice.id }}">
+        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+    {% endfor %}
+</fieldset>
+<fieldset>
+    <legend><h1>{{ question4.question_text }}</h1></legend>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    {% for choice in question4.choice_set.all %}
+        <input type="radio" name="question4_choice" id="choice{{ forloop.counter }}+8" value="{{ choice.id }}">
+        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+    {% endfor %}
+</fieldset>
+<input type="submit" value="완료">
+</form>

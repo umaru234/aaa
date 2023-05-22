@@ -1,0 +1,20 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap');
+    h1, ul {
+                font-size: 50px;
+                font-family: 'Hi Melody', cursive;
+                }
+    a {
+        font-family: 'Hi Melody', cursive;
+        font_size: 50px;
+        }
+
+</style>
+
+<h1>{{ "결과" }}</h1>
+
+<ul>
+    <li> 당신의 추천 코스는 {{ selected_course }} 입니다</li>
+</ul>
+
+<a href="{% url 'aaa:detail' %}">다시선택하기</a>
